@@ -111,7 +111,7 @@ export function PreviewPanel({ originalText, humanizedText, score }: PreviewPane
 }
 
 // Simple diff visualization
-function DiffView({ original, modified }: { original: string; modified: string }) {
+function DiffView({ modified }: { original: string; modified: string }) {
   // This is a simplified diff - just show modified text highlighted
   // In a real app you'd use a proper diff library
   return <span>{modified}</span>;

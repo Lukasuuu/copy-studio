@@ -1,7 +1,39 @@
 import { motion } from 'framer-motion';
-import * as Icons from 'lucide-react';
+import {
+  MessageCircle,
+  Briefcase,
+  Zap,
+  Laugh,
+  Heart,
+  GraduationCap,
+  Newspaper,
+  Palette,
+  Code,
+  TrendingUp,
+  Coffee,
+  BookOpen,
+  BarChart3,
+  Circle,
+  type LucideIcon,
+} from 'lucide-react';
 import { TONES, type Tone } from '../lib/humanizer';
 import { cn } from '../lib/utils';
+
+const iconMap: Record<string, LucideIcon> = {
+  MessageCircle,
+  Briefcase,
+  Zap,
+  Laugh,
+  Heart,
+  GraduationCap,
+  Newspaper,
+  Palette,
+  Code,
+  TrendingUp,
+  Coffee,
+  BookOpen,
+  BarChart3,
+};
 
 interface ToneSelectorProps {
   value: Tone;
@@ -14,7 +46,7 @@ export function ToneSelector({ value, onChange }: ToneSelectorProps) {
       <p className="text-sm font-semibold text-slate-400 uppercase tracking-wider">Tom de Voz</p>
       <div className="grid grid-cols-2 gap-2">
         {TONES.map((tone, i) => {
-          const Icon = (Icons as Record<string, React.ComponentType<{ className?: string }>>)[tone.icon] || Icons.Circle;
+          const Icon = iconMap[tone.icon] || Circle;
           const isActive = value === tone.value;
           return (
             <motion.button
